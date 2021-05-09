@@ -20,7 +20,7 @@ namespace lab7_8
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            double x1, y1, x2, y2, r2, x3, y3, r3, h3, x4, y4, r4, h4;
+            double x1, y1, x2, y2, r2, x3, y3, r3, x4, y4, r4, h4;
             x1 = Convert.ToDouble(textBox2.Text);
             y1 = Convert.ToDouble(textBox3.Text);
             x2 = Convert.ToDouble(textBox4.Text);
