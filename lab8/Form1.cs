@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace lab7_dop
+namespace lab8
 {
     public partial class Form1 : Form
     {
@@ -31,6 +31,7 @@ namespace lab7_dop
             y3 = Convert.ToDouble(textBoxY3.Text);
             r3 = Convert.ToDouble(textBoxR3.Text);
             g3 = Convert.ToInt32(textBoxG3.Text);
+
             Point tochka = new Point();
             tochka.pointX = x1;
             tochka.pointY = y1;
@@ -38,9 +39,14 @@ namespace lab7_dop
             textBoxOutput.Text += "x= " + tochka.pointX + "\t";
             textBoxOutput.Text += "y= " + tochka.pointY + Environment.NewLine;
             textBoxOutput.Text += Environment.NewLine + Environment.NewLine;
+
+            Circle circle = new Circle(x2, y2, r2);
             textBoxOutput.Text += "Круг" + Environment.NewLine;
-            textBoxOutput.Text += "Невозможно создать экземпляр абстрактного класса Circle "
-                                  + Environment.NewLine;
+            textBoxOutput.Text += "x= " + circle.pointX + "\t";
+            textBoxOutput.Text += "y= " + circle.pointY + "\t";
+            textBoxOutput.Text += "r= " + circle.Rad + Environment.NewLine;
+            textBoxOutput.Text += "Длина окружности " + string.Format("{0:F3}", circle.lenght()) + Environment.NewLine;
+            textBoxOutput.Text += "Площадь круга " + string.Format("{0:F3}", circle.square()) + Environment.NewLine;
             textBoxOutput.Text += Environment.NewLine + Environment.NewLine;
 
             Segment segment = new Segment(x3, y3, r3, g3);
@@ -49,13 +55,10 @@ namespace lab7_dop
             textBoxOutput.Text += "y= " + segment.pointY + "\t";
             textBoxOutput.Text += "r= " + segment.Rad + "\t";
             textBoxOutput.Text += "g= " + segment.Grad + Environment.NewLine;
-            textBoxOutput.Text += "Длина дуги " + string.Format("{0:F3}",
-                segment.lenght()) + Environment.NewLine;
-            textBoxOutput.Text += "Периметр сегмента " + string.Format("{0:F3}",
-                segment.perimetr()) + Environment.NewLine;
-            textBoxOutput.Text += "Площадь сегмента " + string.Format("{0:F3}",
-                segment.square()) + Environment.NewLine;
-            
+            textBoxOutput.Text += "Длина дуги " + string.Format("{0:F3}", segment.lenght()) + Environment.NewLine;
+            textBoxOutput.Text +=
+                "Периметр сегмента " + string.Format("{0:F3}", segment.perimetr()) + Environment.NewLine;
+            textBoxOutput.Text += "Площадь сегмента " + string.Format("{0:F3}", segment.square()) + Environment.NewLine;
         }
 
         private void button2_Click(object sender, EventArgs e)

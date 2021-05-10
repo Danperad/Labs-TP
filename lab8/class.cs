@@ -1,14 +1,15 @@
 ﻿using System;
 
-namespace lab7_dop
+namespace lab8
 {
-    class Point
+    class Point : IPoint
     {
         public Point()
         {
         }
 
         protected double x, y;
+        
 
         public double pointX
         {
@@ -29,16 +30,17 @@ namespace lab7_dop
         }
     }
 
-    abstract class Circle : Point
+    class Circle : Point, ICircle
     {
         public Circle()
         {
         }
 
-        public Circle(double X, double Y)
+        public Circle(double X, double Y, double R)
         {
             x = X;
             y = Y;
+            radius = R;
         }
 
         protected double radius;
@@ -52,18 +54,25 @@ namespace lab7_dop
             }
         }
 
-        public abstract double lenght();
+        public double lenght()
+        {
+            return 2 * Math.PI * radius;
+        }
+
+        public double square()
+        {
+            return Math.PI * radius * radius;
+        }
     }
 
-    class Arc : Circle
+    class Arc : Circle, IArc
     {
         public Arc()
         {
         }
 
-        public Arc(double X, double Y, double R, double G) : base(X, Y)
+        public Arc(double X, double Y, double R, double G) : base(X, Y, R)
         {
-            radius = R;
             gradus = G;
         }
 
@@ -83,13 +92,13 @@ namespace lab7_dop
             return (Math.PI * gradus / 180);
         }
 
-        public override double lenght()
+        public double lenght()
         {
             return radius * gradRad();
         }
     }
 
-    class Segment : Arc
+    class Segment : Arc, ISegment
     {
         public Segment()
         {
@@ -102,11 +111,6 @@ namespace lab7_dop
         private double gradRad()
         {
             return (Math.PI * gradus / 180);
-        }
-
-        public override double lenght()
-        {
-            return radius * gradRad();
         }
 
         public double perimetr()

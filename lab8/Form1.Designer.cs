@@ -1,4 +1,4 @@
-﻿namespace lab7_dop
+﻿namespace lab8
 {
     partial class Form1
     {
