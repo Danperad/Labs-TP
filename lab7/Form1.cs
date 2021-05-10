@@ -47,7 +47,7 @@ namespace lab7_8
             Scope roll = new Scope(x3, y3, r3);
             textBox1.Text += "Цилиндр" + Environment.NewLine;
             textBox1.Text += "x= " + roll.pointX + "\t";
-            textBox1.Text += "x= " + roll.pointY + "\t";
+            textBox1.Text += "y= " + roll.pointY + "\t";
             textBox1.Text += "r= " + roll.Rad + "\t";
             textBox1.Text += "Площадь основания цилиндра = " + string.Format("{0:F3}",
                 roll.square()) + Environment.NewLine;

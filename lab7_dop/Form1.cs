@@ -20,28 +20,47 @@ namespace lab7_dop
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            double x1, y1, x2, y2, r2;
-            x1 = Convert.ToDouble(textBox2.Text);
-            y1 = Convert.ToDouble(textBox3.Text);
-            x2 = Convert.ToDouble(textBox4.Text);
-            y2 = Convert.ToDouble(textBox5.Text);
-            r2 = Convert.ToDouble(textBox6.Text);
+            double x1, y1, x2, y2, r2, x3, y3, r3;
+            int g3;
+            x1 = Convert.ToDouble(textBoxX1.Text);
+            y1 = Convert.ToDouble(textBoxY1.Text);
+            x2 = Convert.ToDouble(textBoxX2.Text);
+            y2 = Convert.ToDouble(textBoxY2.Text);
+            r2 = Convert.ToDouble(textBoxR2.Text);
+            x3 = Convert.ToDouble(textBoxX3.Text);
+            y3 = Convert.ToDouble(textBoxY3.Text);
+            r3 = Convert.ToDouble(textBoxR3.Text);
+            g3 = Convert.ToInt32(textBoxG3.Text);
             Point tochka = new Point();
             tochka.pointX = x1;
             tochka.pointY = y1;
-            textBox1.Text += "Точка" + Environment.NewLine;
-            textBox1.Text += "x= " + tochka.pointX + "\t";
-            textBox1.Text += "y= " + tochka.pointY + Environment.NewLine;
-            textBox1.Text += Environment.NewLine + Environment.NewLine;
-            textBox1.Text += "Круг" + Environment.NewLine;
-            textBox1.Text += "Невозможно создать экземпляр абстрактного класса Circle "
-                             + Environment.NewLine;
-            textBox1.Text += Environment.NewLine + Environment.NewLine;
+            textBoxOutput.Text += "Точка" + Environment.NewLine;
+            textBoxOutput.Text += "x= " + tochka.pointX + "\t";
+            textBoxOutput.Text += "y= " + tochka.pointY + Environment.NewLine;
+            textBoxOutput.Text += Environment.NewLine + Environment.NewLine;
+            textBoxOutput.Text += "Круг" + Environment.NewLine;
+            textBoxOutput.Text += "Невозможно создать экземпляр абстрактного класса Circle "
+                                  + Environment.NewLine;
+            textBoxOutput.Text += Environment.NewLine + Environment.NewLine;
+
+            Segment segment = new Segment(x3, y3, r3, g3);
+            textBoxOutput.Text += "Сегмент" + Environment.NewLine;
+            textBoxOutput.Text += "x= " + segment.pointX + "\t";
+            textBoxOutput.Text += "y= " + segment.pointY + "\t";
+            textBoxOutput.Text += "r= " + segment.Rad + "\t";
+            textBoxOutput.Text += "g= " + segment.Grad + Environment.NewLine;
+            textBoxOutput.Text += "Длина дуги " + string.Format("{0:F3}",
+                segment.lenght()) + Environment.NewLine;
+            textBoxOutput.Text += "Периметр сегмента " + string.Format("{0:F3}",
+                segment.perimetr()) + Environment.NewLine;
+            textBoxOutput.Text += "Площадь сегмента " + string.Format("{0:F3}",
+                segment.square()) + Environment.NewLine;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            textBoxOutput.Clear();
             button1.Enabled = true;
         }
 

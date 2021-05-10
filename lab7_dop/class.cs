@@ -51,15 +51,11 @@ namespace lab7_dop
                 if (value > 0) radius = value;
             }
         }
-        
 
-        public double square()
-        {
-            return Math.PI * radius * radius;
-        }
+        public abstract double lenght();
     }
 
-    abstract class Arc : Circle
+    class Arc : Circle
     {
         public Arc()
         {
@@ -67,9 +63,12 @@ namespace lab7_dop
 
         public Arc(double X, double Y, double R, double G) : base(X, Y)
         {
+            radius = R;
             gradus = G;
         }
+
         protected double gradus;
+
         public double Grad
         {
             get { return gradus; }
@@ -78,10 +77,16 @@ namespace lab7_dop
                 if (value > 0) gradus = value;
             }
         }
-        
-        public abstract double lenght();
-        public abstract double perimetr();
-        public abstract double square();
+
+        private double gradRad()
+        {
+            return (Math.PI * gradus / 180);
+        }
+
+        public override double lenght()
+        {
+            return radius * gradRad();
+        }
     }
 
     class Segment : Arc
@@ -94,22 +99,24 @@ namespace lab7_dop
         {
         }
 
-        private double gradRad() {
+        private double gradRad()
+        {
             return (Math.PI * gradus / 180);
         }
+
         public override double lenght()
         {
             return radius * gradRad();
         }
 
-        public override double perimetr()
+        public double perimetr()
         {
-            return lenght() + 2*radius*Math.Sin(gradRad()/2);
+            return lenght() + 2 * radius * Math.Sin(gradRad() / 2);
         }
 
-        public override double square()
+        public double square()
         {
-            return (radius*radius/2)*(gradRad()-Math.Sin(gradRad()));
+            return (radius * radius / 2) * (gradRad() - Math.Sin(gradRad()));
         }
     }
 }
