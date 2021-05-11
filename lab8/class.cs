@@ -9,7 +9,7 @@ namespace lab8
         }
 
         protected double x, y;
-        
+
 
         public double pointX
         {
@@ -30,19 +30,13 @@ namespace lab8
         }
     }
 
-    class Circle : Point, ICircle
+    class Circle : IPoint, ICircle
     {
         public Circle()
         {
         }
 
-        public Circle(double X, double Y, double R)
-        {
-            x = X;
-            y = Y;
-            radius = R;
-        }
-
+        protected double x, y;
         protected double radius;
 
         public double Rad
@@ -63,20 +57,44 @@ namespace lab8
         {
             return Math.PI * radius * radius;
         }
+
+        public double pointX
+        {
+            get { return x; }
+            set
+            {
+                if (value > 0) x = value;
+            }
+        }
+
+        public double pointY
+        {
+            get { return y; }
+            set
+            {
+                if (value > 0) y = value;
+            }
+        }
     }
 
-    class Arc : Circle, IArc
+    class Arc : IPoint, IArc
     {
         public Arc()
         {
         }
 
-        public Arc(double X, double Y, double R, double G) : base(X, Y, R)
-        {
-            gradus = G;
-        }
-
         protected double gradus;
+        protected double radius;
+        protected double x, y;
+
+        public double Rad
+        {
+            get { return radius; }
+            set
+            {
+                if (value > 0) radius = value;
+            }
+        }
 
         public double Grad
         {
@@ -96,17 +114,35 @@ namespace lab8
         {
             return radius * gradRad();
         }
+
+        public double pointX
+        {
+            get { return x; }
+            set
+            {
+                if (value > 0) x = value;
+            }
+        }
+
+        public double pointY
+        {
+            get { return y; }
+            set
+            {
+                if (value > 0) y = value;
+            }
+        }
     }
 
-    class Segment : Arc, ISegment
+    class Segment : IPoint, IArc, ISegment
     {
         public Segment()
         {
         }
 
-        public Segment(double X, double Y, double R, int G) : base(X, Y, R, G)
-        {
-        }
+        protected double gradus;
+        protected double radius;
+        protected double x, y;
 
         private double gradRad()
         {
@@ -121,6 +157,47 @@ namespace lab8
         public double square()
         {
             return (radius * radius / 2) * (gradRad() - Math.Sin(gradRad()));
+        }
+
+        public double pointX
+        {
+            get { return x; }
+            set
+            {
+                if (value > 0) x = value;
+            }
+        }
+
+        public double pointY
+        {
+            get { return y; }
+            set
+            {
+                if (value > 0) y = value;
+            }
+        }
+
+        public double Rad
+        {
+            get { return radius; }
+            set
+            {
+                if (value > 0) radius = value;
+            }
+        }
+
+        public double Grad
+        {
+            get { return gradus; }
+            set
+            {
+                if (value > 0) gradus = value;
+            }
+        }
+
+        public double lenght()
+        {
+            return radius * gradRad();
         }
     }
 }

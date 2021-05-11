@@ -15,6 +15,7 @@
     }
     public interface IArc
     {
+        double Rad { get; set; }
         double Grad { get; set; }
         double lenght();
     }
