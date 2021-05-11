@@ -77,63 +77,6 @@ namespace lab8
         }
     }
 
-    class Arc : IPoint, IArc
-    {
-        public Arc()
-        {
-        }
-
-        protected double gradus;
-        protected double radius;
-        protected double x, y;
-
-        public double Rad
-        {
-            get { return radius; }
-            set
-            {
-                if (value > 0) radius = value;
-            }
-        }
-
-        public double Grad
-        {
-            get { return gradus; }
-            set
-            {
-                if (value > 0) gradus = value;
-            }
-        }
-
-        private double gradRad()
-        {
-            return (Math.PI * gradus / 180);
-        }
-
-        public double lenght()
-        {
-            return radius * gradRad();
-        }
-
-        public double pointX
-        {
-            get { return x; }
-            set
-            {
-                if (value > 0) x = value;
-            }
-        }
-
-        public double pointY
-        {
-            get { return y; }
-            set
-            {
-                if (value > 0) y = value;
-            }
-        }
-    }
-
     class Segment : IPoint, IArc, ISegment
     {
         public Segment()
