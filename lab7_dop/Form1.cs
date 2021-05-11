@@ -43,12 +43,14 @@ namespace lab7_dop
                                   + Environment.NewLine;
             textBoxOutput.Text += Environment.NewLine + Environment.NewLine;
 
-            Segment segment = new Segment(x3, y3, r3, g3);
+            Segment segment = new Segment(x3, y3);
+            segment.Rad = r3;
+            segment.Grad = g3;
             textBoxOutput.Text += "Сегмент" + Environment.NewLine;
             textBoxOutput.Text += "x= " + segment.pointX + "\t";
             textBoxOutput.Text += "y= " + segment.pointY + "\t";
             textBoxOutput.Text += "r= " + segment.Rad + "\t";
-            textBoxOutput.Text += "g= " + segment.Grad + Environment.NewLine;
+            textBoxOutput.Text += "g= " + segment.Grad + "°"+Environment.NewLine;
             textBoxOutput.Text += "Длина дуги " + string.Format("{0:F3}",
                 segment.lenght()) + Environment.NewLine;
             textBoxOutput.Text += "Периметр сегмента " + string.Format("{0:F3}",

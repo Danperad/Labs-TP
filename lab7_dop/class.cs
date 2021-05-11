@@ -61,10 +61,9 @@ namespace lab7_dop
         {
         }
 
-        public Arc(double X, double Y, double R, double G) : base(X, Y)
+        public Arc(double X, double Y) : base(X, Y)
         {
-            radius = R;
-            gradus = G;
+            
         }
 
         protected double gradus;
@@ -75,6 +74,15 @@ namespace lab7_dop
             set
             {
                 if (value > 0) gradus = value;
+            }
+        }
+
+        public double Rad
+        {
+            get { return radius; }
+            set
+            {
+                if (value > 0) radius = value;
             }
         }
 
@@ -95,7 +103,7 @@ namespace lab7_dop
         {
         }
 
-        public Segment(double X, double Y, double R, int G) : base(X, Y, R, G)
+        public Segment(double X, double Y) : base(X, Y)
         {
         }
 
